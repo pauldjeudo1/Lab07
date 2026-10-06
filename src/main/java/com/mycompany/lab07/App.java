@@ -2,9 +2,13 @@ package com.mycompany.lab07;
 
 
 import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
 import javafx.animation.PathTransition.OrientationType;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -50,7 +54,17 @@ public class App extends Application {
     pt.setRate(-1);
     pt.play();
     
-    root.getChildren().addAll(rect, circle);
+    Ellipse ellipse = new Ellipse(400, 300, 200, 100);
+    ellipse.setFill(Color.RED);
+    ellipse.setStroke(Color.BLACK);
+    ellipse.setStrokeWidth(5);
+    
+    FadeTransition ftrans = new FadeTransition();
+    ScaleTransition strans = new ScaleTransition();
+    RotateTransition rtrans = new RotateTransition();
+    TranslateTransition ttrans = new ScaleTransition();
+    
+    root.getChildren().addAll(rect, circle, ellipse);
     var scene = new Scene(root, 800, 600);
     stage.setScene(scene);
     stage.show();
